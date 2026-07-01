@@ -25,15 +25,15 @@ const apps = [
 ];
 
 function getStudentDisplayName(profile) {
-  return profile.fullName?.trim() || "Student";
+  return profile.name?.trim() || "Student";
 }
 
 function getAppCardClass(app) {
-  return app.notifications === 0 ? "app-crad" : "app-card";
+  return "app-card";
 }
 
 function getNotificationCount(app) {
-  return Number(app.notificationCount || 0);
+  return Number(app.notifications || 0);
 }
 
 function Sidebar() {
@@ -116,8 +116,6 @@ function AppCard({ app }) {
 }
 
 export default function App() {
-  const visibleApps = apps.slice(0, 10);
-
   return (
     <div className="shell">
       <Sidebar />
@@ -129,7 +127,7 @@ export default function App() {
         <aside className="apps-column">
           <h2>My Kalvium Apps</h2>
           <div className="apps-grid">
-            {visibleApps.map((app) => (
+            {apps.map((app) => (
               <AppCard key={app.title} app={app} />
             ))}
           </div>
