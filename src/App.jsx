@@ -25,7 +25,7 @@ const apps = [
 ];
 
 function getStudentDisplayName(profile) {
-  return profile.name?.trim() || "Student";
+  return profile?.name?.trim() || "Student";
 }
 
 function getAppCardClass(app) {
